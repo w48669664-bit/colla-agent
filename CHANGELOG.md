@@ -6,6 +6,13 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-07-28
+
+### Fixed
+
+- Allow clean checkouts and CI builds to run without the ignored local
+  `.openai/hosting.json` file.
+
 ## [0.1.0] - 2026-07-28
 
 ### Added
@@ -23,5 +30,6 @@ The project follows [Semantic Versioning](https://semver.org/).
 - Desktop/mobile layouts, reduced motion, keyboard focus and accessible status labels.
 - Unit, integration, build and deterministic smoke-test coverage.
 
-[Unreleased]: https://github.com/w48669664-bit/colla-agent/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/w48669664-bit/colla-agent/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/w48669664-bit/colla-agent/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/w48669664-bit/colla-agent/releases/tag/v0.1.0
