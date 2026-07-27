@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Launch Matrix — Release Readiness Simulator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#simulation">Skip to simulation</a>
+    <header class="topbar">
+      <div class="product-mark" aria-label="Launch Matrix">
+        <span>LM</span>
+        <div>
+          <strong>Launch Matrix</strong>
+          <small>Release readiness simulator</small>
+        </div>
+      </div>
+      <div class="release-meta">
+        <span>RELEASE</span>
+        <strong>2026.08 · Global checkout</strong>
+      </div>
+      <div class="score-lockup" aria-label="Current readiness score">
+        <span>READINESS</span>
+        <strong id="score">100</strong>
+        <small>/ 100</small>
+      </div>
+    </header>
+
+    <main id="simulation">
+      <section class="mission">
+        <div>
+          <span class="state-pill" id="launch-state">CLEAR TO SHIP</span>
+          <h1>See how one incident changes the whole release.</h1>
+          <p>
+            Inject a scenario, inspect propagation across service dependencies,
+            and decide whether the launch gate still has enough evidence to open.
+          </p>
+        </div>
+        <dl class="mission-stats">
+          <div><dt>Services</dt><dd id="service-count">7</dd></div>
+          <div><dt>Direct incidents</dt><dd id="incident-count">0</dd></div>
+          <div><dt>Propagated risk</dt><dd id="propagated-count">0</dd></div>
+        </dl>
+      </section>
+
+      <div class="workspace">
+        <aside class="control-panel" aria-labelledby="scenario-heading">
+          <header>
+            <h2 id="scenario-heading">Scenario deck</h2>
+            <p>Choose one controlled failure model.</p>
+          </header>
+          <div class="scenario-list" id="scenario-list"></div>
+
+          <div class="filter-block">
+            <label for="service-search">Find a service</label>
+            <input id="service-search" type="search" placeholder="Search name or owner" autocomplete="off" />
+            <label for="status-filter">Visible status</label>
+            <select id="status-filter">
+              <option value="all">All statuses</option>
+              <option value="ready">Ready</option>
+              <option value="at-risk">At risk</option>
+              <option value="degraded">Degraded</option>
+              <option value="blocked">Blocked</option>
+              <option value="failed">Failed</option>
+            </select>
+          </div>
+
+          <button class="reset-button" id="reset-button" type="button">Reset simulation</button>
+        </aside>
+
+        <section class="graph-panel" aria-labelledby="graph-heading">
+          <header>
+            <div>
+              <h2 id="graph-heading">Dependency signal map</h2>
+              <p>Keyboard-focus any node to inspect its release impact.</p>
+            </div>
+            <div class="legend" aria-label="Status legend">
+              <span data-status="ready">Ready</span>
+              <span data-status="at-risk">At risk</span>
+              <span data-status="blocked">Blocked</span>
+              <span data-status="failed">Failed</span>
+            </div>
+          </header>
+          <div class="graph-scroll" tabindex="0" aria-label="Scrollable dependency graph">
+            <svg
+              id="graph"
+              viewBox="0 0 980 560"
+              role="img"
+              aria-labelledby="graph-title graph-description"
+            >
+              <title id="graph-title">Service dependency and risk propagation graph</title>
+              <desc id="graph-description">
+                Seven connected release services. Select a service to inspect its dependencies and downstream impact.
+              </desc>
+            </svg>
+          </div>
+          <div class="mobile-service-list" id="mobile-service-list" aria-label="Services in the simulation"></div>
+        </section>
+
+        <aside class="inspector" aria-labelledby="inspector-title">
+          <header>
+            <span>SELECTED SERVICE</span>
+            <h2 id="inspector-title">Release gate</h2>
+          </header>
+          <div class="inspector-status" id="inspector-status">READY</div>
+          <p id="inspector-copy">All required evidence paths are currently healthy.</p>
+          <dl>
+            <div><dt>Owner</dt><dd id="inspector-owner">Launch council</dd></div>
+            <div><dt>Depends on</dt><dd id="inspector-dependencies">3 services</dd></div>
+            <div><dt>Downstream</dt><dd id="inspector-downstream">0 services</dd></div>
+          </dl>
+          <div class="manual-control">
+            <label for="manual-status">Declared condition</label>
+            <select id="manual-status">
+              <option value="ready">Ready</option>
+              <option value="degraded">Degraded</option>
+              <option value="failed">Failed</option>
+            </select>
+          </div>
+        </aside>
+      </div>
+
+      <section class="event-log" aria-labelledby="event-log-title">
+        <header>
+          <div>
+            <h2 id="event-log-title">Decision trail</h2>
+            <p>Latest simulation events, newest first.</p>
+          </div>
+          <span id="active-scenario">Healthy baseline</span>
+        </header>
+        <ol id="event-list"></ol>
+      </section>
+    </main>
+
+    <div class="sr-live" id="announcer" role="status" aria-live="polite"></div>
+    <script type="module" src="./simulator.js"></script>
+  </body>
+</html>

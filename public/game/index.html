@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07110e" />
+    <meta
+      name="description"
+      content="一款支持键盘、触控与确定性调试接口的极简 Canvas 贪吃蛇。"
+    />
+    <title>霓光贪吃蛇</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true"></span> ARCADE / 01</p>
+          <h1>霓光贪吃蛇</h1>
+        </div>
+        <p class="instructions">方向键 / WASD 移动<br />空格 / P 暂停</p>
+      </header>
+
+      <section class="scoreboard" aria-label="游戏分数">
+        <div class="score-card">
+          <span>当前分数</span>
+          <strong id="score">000</strong>
+        </div>
+        <div class="score-card score-card--best">
+          <span>最高纪录</span>
+          <strong id="best-score">000</strong>
+        </div>
+        <div class="status-chip" id="status-chip" data-state="ready">
+          <span aria-hidden="true"></span>
+          <b>待命</b>
+        </div>
+      </section>
+
+      <section class="board-frame" aria-label="贪吃蛇游戏区域">
+        <canvas id="game-canvas" width="600" height="600" aria-label="20 乘 20 贪吃蛇棋盘">
+          当前浏览器不支持 Canvas，请升级浏览器后再试。
+        </canvas>
+
+        <div class="overlay is-visible" id="game-overlay">
+          <div class="overlay-panel">
+            <p class="overlay-kicker" id="overlay-kicker">准备就绪</p>
+            <h2 id="overlay-title">开始游戏</h2>
+            <p id="overlay-message">吃掉能量点，不要撞上边界或自己。</p>
+            <button class="primary-button" id="overlay-action" type="button">开始</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="action-row">
+        <button class="text-button" id="pause-button" type="button" disabled>
+          <span class="button-icon" aria-hidden="true">Ⅱ</span>
+          <span id="pause-label">暂停</span>
+        </button>
+        <button class="text-button" id="restart-button" type="button">
+          <span class="button-icon" aria-hidden="true">↻</span>
+          重新开始
+        </button>
+      </div>
+
+      <section class="touch-controls" aria-label="触摸方向控制">
+        <button type="button" data-direction="UP" aria-label="向上">↑</button>
+        <button type="button" data-direction="LEFT" aria-label="向左">←</button>
+        <button type="button" data-direction="DOWN" aria-label="向下">↓</button>
+        <button type="button" data-direction="RIGHT" aria-label="向右">→</button>
+      </section>
+
+      <p class="sr-only" id="live-status" aria-live="polite">游戏待命</p>
+      <footer>20 × 20 GRID <span>·</span> 150 MS TICK <span>·</span> LOCAL BEST</footer>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>

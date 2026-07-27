@@ -1,0 +1,74 @@
+name: Bug report
+description: Report a reproducible Colla Agent problem.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Remove credentials, private prompts,
+        absolute project paths and sensitive run data before submitting.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what did you expect?
+      placeholder: A concise description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Start Colla Agent with …
+        2. Invoke the Skill with …
+        3. Observe …
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - Dashboard
+        - Relay Room CLI
+        - Codex Skill
+        - Antigravity consultation
+        - Artifact preview
+        - Review policy
+        - Tests or build
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0 or commit SHA
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: macOS 15, Node 22.13, Codex version, agy version
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Add logs, screenshots or test output after removing sensitive data.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed credentials, private prompts and personal project paths.
+          required: true
+        - label: I searched existing issues for the same problem.
+          required: true

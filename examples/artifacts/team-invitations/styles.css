@@ -1,0 +1,136 @@
+:root {
+  color: #15171a;
+  background: #eceeeb;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 48px 20px;
+}
+
+main {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  border: 1px solid #b8bbb5;
+  background: #ffffff;
+}
+
+header {
+  padding: 34px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid #d9dbd6;
+}
+
+header span {
+  color: #5660d8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+h1 {
+  margin: 10px 0 8px;
+  font-size: 32px;
+  letter-spacing: -.03em;
+}
+
+header p, #feedback { margin: 0; color: #61645f; }
+
+header > strong {
+  padding: 8px 10px;
+  border: 1px solid #b8bbb5;
+  font-size: 12px;
+}
+
+form {
+  padding: 24px 34px;
+  display: grid;
+  grid-template-columns: 1fr 170px auto;
+  align-items: end;
+  gap: 12px;
+  border-bottom: 1px solid #d9dbd6;
+  background: #f6f7f4;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #555852;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+input, select, button {
+  height: 42px;
+  border: 1px solid #aeb1aa;
+  border-radius: 0;
+  color: inherit;
+  background: #fff;
+  font: inherit;
+}
+
+input, select { padding: 0 12px; }
+
+button {
+  padding: 0 16px;
+  border-color: #171816;
+  color: #fff;
+  background: #171816;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover { background: #343631; }
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #5660d8;
+  outline-offset: 2px;
+}
+
+#feedback {
+  min-height: 42px;
+  padding: 13px 34px 0;
+  color: #187255;
+  font-size: 12px;
+}
+
+section { padding: 10px 34px 30px; }
+
+article {
+  min-height: 66px;
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid #e2e3df;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #3e47b6;
+  background: #eceeff;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+article div { display: grid; gap: 4px; }
+article strong { font-size: 13px; }
+article small { color: #6e716b; }
+article b { color: #5e615b; font-size: 11px; }
+
+@media (max-width: 650px) {
+  body { padding: 10px; }
+  header { padding: 24px 20px; }
+  form { padding: 20px; grid-template-columns: 1fr; }
+  #feedback { padding-left: 20px; }
+  section { padding: 8px 20px 24px; }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Colla Agent"
+  short_description: "Run a live Codex and Antigravity collaboration"
+  default_prompt: "Use $relay-room-collaboration to complete this project in Colla Agent with a live, traceable Codex and Antigravity review loop."

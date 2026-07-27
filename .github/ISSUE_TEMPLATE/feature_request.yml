@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose an improvement to Colla Agent.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What is difficult or impossible today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the desired workflow or interface.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: checkboxes
+    id: invariants
+    attributes:
+      label: Collaboration invariants
+      options:
+        - label: The current Codex session remains the sole writer.
+          required: true
+        - label: Antigravity remains read-only and review loops remain bounded.
+          required: true
+        - label: The proposal does not claim to expose private chain-of-thought.
+          required: true

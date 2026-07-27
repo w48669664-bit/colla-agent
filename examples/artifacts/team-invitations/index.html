@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Team invitation settings</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <span>EXAMPLE OUTPUT · SETTINGS</span>
+          <h1>Team access</h1>
+          <p>Invite collaborators and choose what they can manage.</p>
+        </div>
+        <strong id="member-count">3 members</strong>
+      </header>
+
+      <form id="invite-form">
+        <label>
+          Work email
+          <input name="email" type="email" placeholder="teammate@example.com" required />
+        </label>
+        <label>
+          Role
+          <select name="role">
+            <option>Editor</option>
+            <option>Viewer</option>
+            <option>Admin</option>
+          </select>
+        </label>
+        <button type="submit">Send invitation</button>
+      </form>
+
+      <p id="feedback" role="status" aria-live="polite"></p>
+
+      <section aria-label="Team members">
+        <article>
+          <span class="avatar">SC</span>
+          <div><strong>Sam Chen</strong><small>sam@example.com</small></div>
+          <b>Owner</b>
+        </article>
+        <article>
+          <span class="avatar">MK</span>
+          <div><strong>Mina Kim</strong><small>mina@example.com</small></div>
+          <b>Editor</b>
+        </article>
+        <article>
+          <span class="avatar">AR</span>
+          <div><strong>Alex Rivera</strong><small>alex@example.com</small></div>
+          <b>Viewer</b>
+        </article>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
